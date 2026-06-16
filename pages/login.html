@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход — PrintHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="meta-header scrolled" id="metaHeader">
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html" class="logo-text">Print<span>Hub</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
+        <li class="nav-item"><a href="calc.html" class="nav-link">3D-ПЕЧАТЬ</a></li>
+        <li class="nav-item"><a href="materials.html" class="nav-link">МАТЕРИАЛЫ</a></li>
+        <li class="nav-item"><a href="printers.html" class="nav-link">ПРИНТЕРЫ</a></li>
+        <li class="nav-item"><a href="news.html" class="nav-link">НОВОСТИ</a></li>
+        
+        <li class="nav-item"><a href="cart.html" class="nav-link nav-cart-link">КОРЗИНА</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <span class="user-name" id="userName">Вход / Регистрация</span>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="page active" id="page-login">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div style="font-size:22px;font-weight:700;color:#0064e0;margin-bottom:28px">Print<span style="color:#1a1a1a">Hub</span></div>
+      <h2>Вход в аккаунт</h2>
+      <p class="auth-sub">Введите данные для входа</p>
+      <form onsubmit="phLoginSubmit(event)">
+      <div class="form-group"><label>Email</label><input class="input-field" id="login-email" type="email" placeholder="your@email.com" autocomplete="email"></div>
+      <div class="form-group"><label>Пароль</label><input class="input-field" id="login-password" type="password" placeholder="Введите пароль" autocomplete="current-password"></div>
+      <div class="forgot-link"><span onclick="alert('Для восстановления пароля свяжитесь с поддержкой: gilnenikita@gmail.com')">Забыли пароль?</span></div>
+      <p id="auth-msg" style="display:none;margin-bottom:16px;font-size:14px;font-weight:500"></p>
+      <button type="submit" class="btn-primary" style="width:100%;padding:14px;font-size:16px;border-radius:8px;box-sizing:border-box;border:none;cursor:pointer">Войти</button>
+      </form>
+      <div class="auth-link">Нет аккаунта? <a href="register.html">Зарегистрироваться</a></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+<script src="../js/cart.js"></script>
+</body>
+</html>

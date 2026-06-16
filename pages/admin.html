@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Администрирование — PrintHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="meta-header scrolled" id="metaHeader">
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html" class="logo-text">Print<span>Hub</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
+        <li class="nav-item"><a href="calc.html" class="nav-link">3D-ПЕЧАТЬ</a></li>
+        <li class="nav-item"><a href="materials.html" class="nav-link">МАТЕРИАЛЫ</a></li>
+        <li class="nav-item"><a href="printers.html" class="nav-link">ПРИНТЕРЫ</a></li>
+        <li class="nav-item"><a href="news.html" class="nav-link">НОВОСТИ</a></li>
+        <li class="nav-item"><a href="cart.html" class="nav-link nav-cart-link">КОРЗИНА</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <a href="login.html" class="auth-btn" id="authBtn">Вход / Регистрация</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="page active" id="page-admin">
+  <div class="inner-hero calc-bg" style="min-height:26vh">
+    <div class="inner-hero-content">
+      <h1>Панель администратора</h1>
+      <p>Управление каталогом, новостями и заказами PrintHub.</p>
+    </div>
+  </div>
+
+  <div class="admin-wrap">
+    
+    <div id="admin-loading" style="text-align:center;padding:60px;color:#888">Проверка доступа…</div>
+
+    <div id="admin-gate" class="admin-gate" style="display:none">
+      <i class="fas fa-lock"></i>
+      <h2>Доступ ограничен</h2>
+      <p id="admin-gate-text">Эта страница доступна только администраторам сервиса.</p>
+      <a href="login.html" class="admin-btn admin-btn-primary" id="admin-gate-btn">Войти</a>
+    </div>
+
+    
+    <div id="admin-app" style="display:none">
+      <div class="admin-head">
+        <h2><i class="fas fa-sliders-h" style="color:#0064e0"></i> Администрирование</h2>
+        <span class="admin-user" id="admin-user-email"></span>
+      </div>
+
+      <div id="admin-msg" class="admin-msg"></div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="materials"><i class="fas fa-cube"></i> Материалы</button>
+        <button class="admin-tab" data-tab="printers"><i class="fas fa-print"></i> Принтеры</button>
+        <button class="admin-tab" data-tab="news"><i class="fas fa-newspaper"></i> Новости</button>
+        <button class="admin-tab" data-tab="orders"><i class="fas fa-box"></i> Заказы</button>
+      </div>
+
+      <div class="admin-panel active" id="panel-materials">
+        <div class="admin-toolbar">
+          <span class="admin-count" id="count-materials"></span>
+          <button class="admin-btn admin-btn-primary" onclick="adminAddNew('materials')"><i class="fas fa-plus"></i> Добавить материал</button>
+        </div>
+        <div class="admin-table-wrap"><table class="admin-table" id="table-materials"></table></div>
+      </div>
+
+      <div class="admin-panel" id="panel-printers">
+        <div class="admin-toolbar">
+          <span class="admin-count" id="count-printers"></span>
+          <button class="admin-btn admin-btn-primary" onclick="adminAddNew('printers')"><i class="fas fa-plus"></i> Добавить принтер</button>
+        </div>
+        <div class="admin-table-wrap"><table class="admin-table" id="table-printers"></table></div>
+      </div>
+
+      <div class="admin-panel" id="panel-news">
+        <div class="admin-toolbar">
+          <span class="admin-count" id="count-news"></span>
+          <button class="admin-btn admin-btn-primary" onclick="adminAddNew('news')"><i class="fas fa-plus"></i> Добавить новость</button>
+        </div>
+        <div class="admin-table-wrap"><table class="admin-table" id="table-news"></table></div>
+      </div>
+
+      <div class="admin-panel" id="panel-orders">
+        <div class="admin-toolbar">
+          <span class="admin-count" id="count-orders"></span>
+        </div>
+        <div id="orders-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-modal" id="admin-modal">
+  <div class="admin-modal-card">
+    <h3 id="admin-modal-title">Редактирование</h3>
+    <div class="admin-modal-grid" id="admin-modal-fields"></div>
+    <div class="admin-modal-foot">
+      <button class="admin-btn admin-btn-ghost" onclick="adminCloseModal()">Отмена</button>
+      <button class="admin-btn admin-btn-primary" id="admin-modal-save" onclick="adminSave()"><i class="fas fa-save"></i> Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<div class="admin-modal" id="admin-confirm">
+  <div class="admin-modal-card" style="max-width:420px">
+    <h3 id="admin-confirm-title">Удалить запись?</h3>
+    <p style="color:#666;margin-bottom:8px" id="admin-confirm-text">Это действие нельзя отменить.</p>
+    <div class="admin-modal-foot">
+      <button class="admin-btn admin-btn-ghost" onclick="adminCloseConfirm()">Отмена</button>
+      <button class="admin-btn admin-btn-danger" id="admin-confirm-ok"><i class="fas fa-trash"></i> Удалить</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <div class="footer-logo">Print<span>Hub</span></div>
+      <p>г. Энгельс, ул. Ленина, 15</p>
+      <p>Пн–Пт: 9:00–18:00</p>
+    </div>
+    <div class="footer-section">
+      <h3>КОНТАКТЫ</h3>
+      <p>+7 (917) 202-91-81</p>
+      <p>gilnenikita@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin.js"></script>
+  <script src="../js/main.js"></script>
+<script src="../js/cart.js"></script>
+</body>
+</html>

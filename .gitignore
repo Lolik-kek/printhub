@@ -1,0 +1,26 @@
+# Файлы отчёта по практике и вспомогательные — в репозиторий сайта не входят
+*.docx
+*.pdf
+*.drawio
+*.tmp
+~$*
+~WRL*
+*.bak.docx
+*.log
+
+# Временные скрипты сборки отчёта/скриншотов
+_*.py
+_*.js
+_*.html
+build_*.py
+
+# Сгенерированные материалы и зависимости
+report_screenshots/
+_orig/
+node_modules/
+package.json
+package-lock.json
+
+# Прочее
+printhub_site.html
+Эскиз*.jpg

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор стоимости — PrintHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="meta-header" id="metaHeader">
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html" class="logo-text">Print<span>Hub</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
+        <li class="nav-item"><a href="calc.html" class="nav-link active-link">3D-ПЕЧАТЬ</a></li>
+        <li class="nav-item"><a href="materials.html" class="nav-link">МАТЕРИАЛЫ</a></li>
+        <li class="nav-item"><a href="printers.html" class="nav-link">ПРИНТЕРЫ</a></li>
+        <li class="nav-item"><a href="news.html" class="nav-link">НОВОСТИ</a></li>
+        
+        <li class="nav-item"><a href="cart.html" class="nav-link nav-cart-link">КОРЗИНА</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <a href="login.html" class="auth-btn" id="authBtn">Вход / Регистрация</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="page active" id="page-calc">
+  <div class="inner-hero calc-bg">
+    <div class="inner-hero-content">
+      <h1>3D-печать</h1>
+      <p>Укажите параметры изделия и получите мгновенную оценку стоимости его 3D-печати.</p>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="calculator-section">
+      <h2 class="calculator-title">Калькулятор стоимости печати</h2>
+      <div class="upload-zone" id="model-drop">
+        <input type="file" id="model-file" accept=".stl,.obj,.3mf" hidden>
+        <i class="fas fa-cube"></i>
+        <div class="upload-title">Загрузите 3D-модель для точного расчёта</div>
+        <div class="upload-sub">STL, OBJ или 3MF · перетащите файл сюда или нажмите</div>
+        <div id="model-info"></div>
+      </div>
+      <div class="calculator-grid">
+        <div>
+          <div class="volume-display" id="vol-display">Загрузите модель для расчёта</div>
+          <div class="calc-group" style="margin-top:20px"><label>Заполнение (%)</label><input class="calc-input" type="range" min="20" max="100" value="20" id="c-fill" oninput="calcPrice();document.getElementById('fill-val').textContent=this.value+'%'"><div style="display:flex;justify-content:space-between;font-size:13px;color:#888;margin-top:4px"><span>20%</span><span id="fill-val" style="color:#0064e0;font-weight:600">20%</span><span>100%</span></div></div>
+          <div class="calc-group"><label>Материал</label>
+            <select class="calc-select" id="c-mat" onchange="calcPrice()">
+              <option value="1">PLA — от 1 ₽/г</option>
+              <option value="1.2">PETG — от 1.2 ₽/г</option>
+              <option value="1.4">ABS — от 1.4 ₽/г</option>
+              <option value="1.6">ASA — от 1.6 ₽/г</option>
+              <option value="2">TPU — от 2 ₽/г</option>
+              <option value="3.5">Смола — от 3.5 ₽/г</option>
+            </select>
+          </div>
+          <div class="calc-group"><label>Качество печати</label>
+            <select class="calc-select" id="c-qual" onchange="calcPrice()">
+              <option value="0.8">Черновое (0.3мм) — −20%</option>
+              <option value="1" selected>Стандартное (0.2мм)</option>
+              <option value="1.4">Высокое (0.1мм) — +40%</option>
+              <option value="1.8">Ультра (0.05мм) — +80%</option>
+            </select>
+          </div>
+          <div class="calc-group"><label>Постобработка</label>
+            <select class="calc-select" id="c-post" onchange="calcPrice()">
+              <option value="0">Без постобработки</option>
+              <option value="500">Шлифовка (+500 ₽)</option>
+              <option value="1200">Покраска (+1 200 ₽)</option>
+              <option value="2000">Шлифовка + Покраска (+2 000 ₽)</option>
+            </select>
+          </div>
+          <div class="calc-group"><label>Количество копий</label><input class="calc-input" type="number" min="1" step="1" value="1" id="c-copies" oninput="calcPrice()"></div>
+          <button class="order-btn" onclick="calcPrice()"><i class="fas fa-calculator"></i> Рассчитать стоимость</button>
+        </div>
+        <div class="result-panel">
+          <h3>Результат расчёта</h3>
+          <div class="result-price-big"><span>от</span> <span id="price-val">1 840</span> <span>₽</span></div>
+          <div class="result-note">*Финальная цена уточняется после анализа файла модели</div>
+          <div class="cost-breakdown">
+            <div class="breakdown-item"><span>Объём изделия</span><span id="b-vol">400 000 мм³</span></div>
+            <div class="breakdown-item"><span>Масса (за шт.)</span><span id="b-mass">~85 г</span></div>
+            <div class="breakdown-item"><span>Материал (за шт.)</span><span id="b-mat">85 ₽</span></div>
+            <div class="breakdown-item"><span>Печать и оборудование (за шт.)</span><span id="b-work">640 ₽</span></div>
+            <div class="breakdown-item"><span>Постобработка (за шт.)</span><span id="b-post">0 ₽</span></div>
+            <div class="breakdown-item"><span>Подготовка (слайсинг)</span><span id="b-setup">250 ₽</span></div>
+            <div class="breakdown-item"><span>Количество копий</span><span id="b-copies">×1</span></div>
+            <div class="breakdown-item"><span>Сложность модели</span><span id="b-complexity">—</span></div>
+            <div class="breakdown-item"><span>ИТОГО</span><span id="b-total">975 ₽</span></div>
+          </div>
+          <button class="order-btn" id="add-print-btn" onclick="addPrintToCart()" style="background:#fff;color:#0064e0;display:none"><i class="fas fa-cart-plus"></i> Добавить в корзину</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <div class="footer-logo">Print<span>Hub</span></div>
+      <p>г. Энгельс, ул. Ленина, 15</p>
+      <p>Пн–Пт: 9:00–18:00</p>
+    </div>
+    <div class="footer-section">
+      <h3>КОНТАКТЫ</h3>
+      <p>+7 (917) 202-91-81</p>
+      <p>gilnenikita@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/calculator.js"></script>
+<script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+<script src="https://unpkg.com/fflate@0.6.10/umd/index.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+<script src="https://unpkg.com/three@0.128.0/examples/js/loaders/3MFLoader.js"></script>
+<script src="../js/model-estimate.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — PrintHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="meta-header" id="metaHeader">
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html" class="logo-text">Print<span>Hub</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
+        <li class="nav-item"><a href="calc.html" class="nav-link">3D-ПЕЧАТЬ</a></li>
+        <li class="nav-item"><a href="materials.html" class="nav-link">МАТЕРИАЛЫ</a></li>
+        <li class="nav-item"><a href="printers.html" class="nav-link">ПРИНТЕРЫ</a></li>
+        <li class="nav-item"><a href="news.html" class="nav-link">НОВОСТИ</a></li>
+        
+        <li class="nav-item"><a href="cart.html" class="nav-link nav-cart-link">КОРЗИНА</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <a href="login.html" class="auth-btn" id="authBtn">Вход / Регистрация</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="page active" id="page-contacts">
+  <div class="inner-hero" style="min-height:35vh">
+    <div class="inner-hero-content">
+      <h1>Контакты</h1>
+      <p>Свяжитесь с нами любым удобным способом.</p>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <h3>Наши контакты</h3>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><div class="contact-label">Телефон</div><div class="contact-val">+7 (917) 202-91-81</div></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-label">Email</div><div class="contact-val">gilnenikita@gmail.com</div></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-headset"></i></div><div><div class="contact-label">Поддержка</div><div class="contact-val">gilnenikita@gmail.com</div></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-label">Адрес</div><div class="contact-val">г. Энгельс, ул. Ленина, 15</div></div></div>
+        <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><div class="contact-label">Часы работы</div><div class="contact-val">Пн–Пт: 9:00–18:00<br>Сб: 10:00–16:00</div></div></div>
+      </div>
+      <div>
+        <div class="map-placeholder"><div style="text-align:center"><div style="font-size:40px;margin-bottom:12px">📍</div><p>г. Энгельс, ул. Ленина, 15</p></div></div>
+        <div class="contact-card" style="margin-top:24px">
+          <h3>Написать нам</h3>
+          <div class="form-group"><label>Ваше имя</label><input class="input-field" type="text" placeholder="Иван Иванов"></div>
+          <div class="form-group"><label>Email</label><input class="input-field" type="email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Сообщение</label><textarea class="input-field" rows="4" placeholder="Ваш вопрос..." style="resize:vertical"></textarea></div>
+          <button class="btn-primary" style="width:100%;padding:14px;font-size:15px">Отправить сообщение</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <div class="footer-logo">Print<span>Hub</span></div>
+      <p>г. Энгельс, ул. Ленина, 15</p>
+      <p>Пн–Пт: 9:00–18:00</p>
+    </div>
+    <div class="footer-section">
+      <h3>КОНТАКТЫ</h3>
+      <p>+7 (917) 202-91-81</p>
+      <p>gilnenikita@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+<script src="../js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Материалы — PrintHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="meta-header" id="metaHeader">
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html" class="logo-text">Print<span>Hub</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
+        <li class="nav-item"><a href="calc.html" class="nav-link">3D-ПЕЧАТЬ</a></li>
+        <li class="nav-item"><a href="materials.html" class="nav-link active-link">МАТЕРИАЛЫ</a></li>
+        <li class="nav-item"><a href="printers.html" class="nav-link">ПРИНТЕРЫ</a></li>
+        <li class="nav-item"><a href="news.html" class="nav-link">НОВОСТИ</a></li>
+        
+        <li class="nav-item"><a href="cart.html" class="nav-link nav-cart-link">КОРЗИНА</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <a href="login.html" class="auth-btn" id="authBtn">Вход / Регистрация</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="page active" id="page-materials">
+  <div class="inner-hero materials-bg">
+    <div class="inner-hero-content">
+      <h1>Материалы для 3D-печати</h1>
+      <p>Широкий ассортимент филаментов, смол и специальных материалов для любых задач.</p>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="filter-bar">
+      <span class="filter-chip active">Все</span>
+      <span class="filter-chip">PLA</span>
+      <span class="filter-chip">PETG</span>
+      <span class="filter-chip">ASA</span>
+      <span class="filter-chip">Переработанные</span>
+      <select class="filter-select"><option>По рейтингу</option><option>По цене ↑</option><option>По цене ↓</option><option>Новинки</option></select>
+    </div>
+    <div class="products-grid" id="materials-grid"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <div class="footer-logo">Print<span>Hub</span></div>
+      <p>г. Энгельс, ул. Ленина, 15</p>
+      <p>Пн–Пт: 9:00–18:00</p>
+    </div>
+    <div class="footer-section">
+      <h3>КОНТАКТЫ</h3>
+      <p>+7 (917) 202-91-81</p>
+      <p>gilnenikita@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/catalog.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+<script src="../js/cart.js"></script>
+</body>
+</html>

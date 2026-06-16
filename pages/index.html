@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintHub — 3D-печать</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="meta-header" id="metaHeader">
+  <div class="header-container">
+    <div class="logo">
+      <a href="index.html" class="logo-text">Print<span>Hub</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link active-link">ГЛАВНАЯ</a></li>
+        <li class="nav-item"><a href="calc.html" class="nav-link">3D-ПЕЧАТЬ</a></li>
+        <li class="nav-item"><a href="materials.html" class="nav-link">МАТЕРИАЛЫ</a></li>
+        <li class="nav-item"><a href="printers.html" class="nav-link">ПРИНТЕРЫ</a></li>
+        <li class="nav-item"><a href="news.html" class="nav-link">НОВОСТИ</a></li>
+        
+        <li class="nav-item"><a href="cart.html" class="nav-link nav-cart-link">КОРЗИНА</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <a href="login.html" class="auth-btn" id="authBtn">Вход / Регистрация</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="page active" id="page-home">
+  <section class="hero-section">
+    <div class="banner-content">
+      <div class="banner-tag">Ваша идея, наша печать</div>
+      <h1 class="banner-title">Единая экосистема для 3D-энтузиастов и профессионалов</h1>
+      <p class="banner-subtitle">От заказа продукции и материалов до актуальных новостей и обзоров оборудования.</p>
+      <div class="banner-buttons">
+        <a href="materials.html" class="btn-primary">Материалы</a>
+        <a href="calc.html" class="btn-secondary">Рассчитать стоимость</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-val">500+</div><div class="stat-label">Заказов в месяц</div></div>
+      <div class="stat-item"><div class="stat-val">98%</div><div class="stat-label">Довольных клиентов</div></div>
+      <div class="stat-item"><div class="stat-val">24ч</div><div class="stat-label">Стандартный срок</div></div>
+      <div class="stat-item"><div class="stat-val">50+</div><div class="stat-label">Видов материалов</div></div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">О сервисе</div>
+        <h2>Что такое PrintHub?</h2>
+        <p>«PrintHub» — это онлайн-сервис для заказа услуг 3D-печати, предоставляющий пользователям возможность легко и удобно изготавливать детали, прототипы и готовые изделия с использованием современных технологий аддитивного производства.</p>
+        <p>Деятельность сервиса направлена на то, чтобы сделать 3D-печать доступной, прозрачной и качественной для широкого круга клиентов — от любителей до профессионалов.</p>
+        <div style="margin-top:28px">
+          <a href="calc.html" class="btn-primary">Рассчитать стоимость</a>
+        </div>
+      </div>
+      <div class="about-visual"><span>🖨️</span></div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <div class="features-inner">
+      <div class="section-label">Преимущества</div>
+      <h2 class="section-title">Почему PrintHub?</h2>
+      <p class="section-sub">Современное оборудование, широкий выбор материалов и команда профессионалов.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-star"></i></div>
+          <h3>Высокое качество</h3>
+          <p>Профессиональное оборудование и сертифицированные материалы. Каждое изделие проходит контроль качества.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3>Быстрые сроки</h3>
+          <p>Стандартные заказы за 24–48 часов. Экспресс-изготовление для срочных проектов.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Широкий выбор материалов</h3>
+          <p>PLA, ABS, PETG, TPU, смолы, металлопорошки — подберём под любые требования.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <h3>Поддержка 24/7</h3>
+          <p>Специалисты помогут с выбором материала, подготовкой модели и оформлением заказа.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section" style="margin-top:0">
+    <div class="features-inner">
+      <div class="section-label">Отзывы</div>
+      <h2 class="section-title">Что говорят клиенты</h2>
+      <p class="section-sub">Более 500 довольных клиентов выбирают PrintHub для своих проектов.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="avatar">АК</div>
+            <div><div class="review-name">Алексей Кириллов</div><div class="review-date">12 февраля 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Отличный сервис! Заказывал прототип корпуса — сделали за 18 часов. Качество идеальное, детализация на высоте. Буду заказывать ещё.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="avatar" style="background:#7c3aed">МВ</div>
+            <div><div class="review-name">Мария Волкова</div><div class="review-date">5 февраля 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Долго искала хороший сервис. PrintHub — лучший выбор: удобный сайт, честные цены, быстрая доставка. Печатают на Bambu Lab — качество супер.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="avatar" style="background:#059669">ДС</div>
+            <div><div class="review-name">Дмитрий Соколов</div><div class="review-date">28 января 2026</div></div>
+          </div>
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">Заказываю филаменты уже третий раз. Цены ниже, чем в других магазинах, доставка быстрая. Пробовал PLA, PETG и TPU — всё качественное.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Готовы начать печатать?</h2>
+    <p>Рассчитайте стоимость вашего изделия прямо сейчас — это займёт меньше минуты.</p>
+    <a href="calc.html" class="btn-primary" style="font-size:17px;padding:16px 48px">Рассчитать стоимость</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <div class="footer-logo">Print<span>Hub</span></div>
+      <p>г. Энгельс, ул. Ленина, 15</p>
+      <p>Пн–Пт: 9:00–18:00</p>
+    </div>
+    <div class="footer-section">
+      <h3>КОНТАКТЫ</h3>
+      <p>+7 (917) 202-91-81</p>
+      <p>gilnenikita@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+<script src="../js/cart.js"></script>
+</body>
+</html>
